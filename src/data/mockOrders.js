@@ -1,0 +1,45 @@
+// Mock 訂單資料 — 供後台儀表板展示，日後由後端 API 取代
+export const mockOrders = [
+  {
+    id: "JD202609001",
+    buyerName: "林小姐",
+    phone: "0912345678",
+    email: "lin@example.com",
+    items: [
+      { id: "p01", name: "淨毒五郎 次氯酸抑菌噴霧 500ml", qty: 2, price: 490 },
+      { id: "p03", name: "淨毒五郎 衣物除菌噴霧 350ml", qty: 1, price: 350 },
+    ],
+    total: 1330,
+    totalSavings: 500,
+    status: "已付款",
+    remitLast5: "88213",
+    createdAt: "2026-09-08 14:22",
+  },
+  {
+    id: "JD202609002",
+    buyerName: "陳先生",
+    phone: "0922333444",
+    email: "chen@example.com",
+    items: [{ id: "p02", name: "淨毒五郎 隨身抑菌噴霧 60ml 攜帶瓶", qty: 4, price: 199 }],
+    total: 796,
+    totalSavings: 324,
+    status: "待付款",
+    remitLast5: "",
+    createdAt: "2026-09-09 09:10",
+  },
+  {
+    id: "JD202609003",
+    buyerName: "王太太",
+    phone: "0933888777",
+    email: "wang@example.com",
+    items: [
+      { id: "p04", name: "淨毒五郎 廚房油污清潔劑 750ml", qty: 1, price: 299 },
+      { id: "p06", name: "淨毒五郎 寢具床墊清新噴霧 500ml", qty: 1, price: 420 },
+    ],
+    total: 719,
+    totalSavings: 181,
+    status: "待付款",
+    remitLast5: "56791",
+    createdAt: "2026-09-10 20:47",
+  },
+];

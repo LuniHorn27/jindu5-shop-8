@@ -1,0 +1,225 @@
+.product-detail {
+  padding: 28px 24px 80px;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: var(--color-text-soft);
+  margin-bottom: 22px;
+}
+.breadcrumb a {
+  color: var(--color-herb-text);
+}
+.breadcrumb span {
+  margin: 0 4px;
+}
+
+.pd-top {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+}
+
+.pd-gallery-main {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-deep);
+}
+.pd-gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pd-gallery-thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.pd-thumb {
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 0;
+  background: var(--color-bg-deep);
+}
+.pd-thumb.is-active {
+  border-color: var(--color-herb);
+}
+.pd-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pd-name {
+  font-size: 26px;
+  line-height: 1.45;
+}
+
+.pd-short {
+  color: var(--color-text-soft);
+  font-size: 15px;
+}
+
+.pd-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.pd-price-sale {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-herb-dark);
+}
+.pd-price-origin {
+  font-size: 16px;
+  color: var(--color-text-faint);
+  text-decoration: line-through;
+}
+.pd-price-badge {
+  background: var(--color-clay-soft);
+  color: var(--color-clay);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.pd-qty-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+  font-size: 14px;
+  color: var(--color-text-soft);
+}
+
+.pd-qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  border: 1.5px solid var(--color-line);
+  border-radius: 999px;
+  padding: 6px 16px;
+  background: var(--color-surface);
+}
+.pd-qty-stepper button {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  color: var(--color-herb-dark);
+  width: 20px;
+}
+.pd-qty-stepper span {
+  min-width: 16px;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.pd-subtotal-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+  padding: 14px 18px;
+  background: var(--color-bg-deep);
+  border-radius: var(--radius-md);
+}
+.pd-subtotal-label {
+  font-size: 13.5px;
+  color: var(--color-text-soft);
+}
+.pd-subtotal-amount {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-herb-dark);
+}
+.pd-subtotal-savings {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-clay);
+  background: var(--color-clay-soft);
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-left: auto;
+}
+
+.pd-add-btn {
+  font-size: 16px;
+  padding: 16px 26px;
+}
+
+.pd-meta-box {
+  margin-top: 28px;
+  padding: 18px 20px;
+  background: var(--color-herb-soft);
+  border-radius: var(--radius-md);
+}
+.pd-meta-box h3 {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: var(--color-herb-text);
+}
+.pd-meta-box p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--color-text-soft);
+}
+
+.pd-sections {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 760px;
+}
+
+.pd-section h2 {
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+.pd-section p {
+  color: var(--color-text-soft);
+  font-size: 15px;
+}
+
+.pd-description {
+  white-space: pre-line;
+  line-height: 1.9;
+}
+
+.pd-usage-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--color-text-soft);
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .pd-top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .product-detail {
+    padding: 20px 16px 60px;
+  }
+  .pd-name {
+    font-size: 22px;
+  }
+}

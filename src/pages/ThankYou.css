@@ -1,0 +1,238 @@
+.thank-you {
+  max-width: 640px;
+  padding: 56px 24px 90px;
+  margin: 0 auto;
+}
+
+.ty-hero {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.ty-check {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-herb);
+  color: #fff;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.ty-hero h1 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.ty-hero p {
+  color: var(--color-text-soft);
+  font-size: 14.5px;
+  margin: 0;
+}
+
+.ty-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 26px 28px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 20px;
+}
+
+.ty-order-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--color-line);
+  font-size: 14px;
+  color: var(--color-text-soft);
+}
+.ty-order-row strong {
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--color-text);
+}
+
+.ty-items {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ty-items li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+  color: var(--color-text-soft);
+  gap: 12px;
+}
+
+.ty-total-row {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-line);
+  font-weight: 700;
+}
+.ty-total-row span:last-child {
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--color-herb-dark);
+}
+
+.ty-savings-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--color-save-soft);
+  font-size: 13px;
+  color: var(--color-save);
+  font-weight: 600;
+}
+.ty-savings-row span:last-child {
+  font-size: 14px;
+}
+
+.ty-card h2 {
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.ty-bank-info {
+  background: var(--color-bg-deep);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+}
+.ty-bank-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 5px 0;
+  border-bottom: 1px dashed var(--color-line-soft);
+}
+.ty-bank-row:last-child {
+  border-bottom: none;
+}
+
+.ty-bank-note {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  color: var(--color-text-soft);
+  line-height: 1.7;
+}
+
+.ty-remit-card h2 {
+  margin-bottom: 14px;
+}
+
+.ty-remit-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.ty-remit-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-text-soft);
+  flex: 1;
+  min-width: 180px;
+}
+.ty-remit-form input {
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+}
+.ty-remit-form input:focus {
+  outline: none;
+  border-color: var(--color-herb);
+}
+.ty-remit-form em {
+  flex-basis: 100%;
+  color: var(--color-clay);
+  font-style: normal;
+  font-size: 12.5px;
+}
+
+.ty-reported-msg {
+  background: var(--color-herb-soft);
+  color: var(--color-herb-text);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.ty-wishlist {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid var(--color-line);
+}
+.ty-wishlist h3 {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.ty-wishlist-desc {
+  font-size: 13.5px;
+  color: var(--color-text-soft);
+  margin: 0 0 14px;
+  line-height: 1.7;
+}
+.ty-wishlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ty-wishlist-form textarea {
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--color-text);
+  background: var(--color-bg);
+  resize: vertical;
+}
+.ty-wishlist-form textarea::placeholder {
+  color: var(--color-text-faint);
+}
+.ty-wishlist-form textarea:focus {
+  outline: none;
+  border-color: var(--color-herb);
+}
+.ty-other-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-text-soft);
+}
+.ty-wishlist-form button {
+  align-self: flex-start;
+}
+.ty-wishlist-done {
+  background: var(--color-herb-soft);
+  color: var(--color-herb-text);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.ty-back {
+  text-align: center;
+  margin-top: 28px;
+}

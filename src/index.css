@@ -1,0 +1,184 @@
+/* ============ Design Tokens ============ */
+/* 品牌風格參考「媽媽沙發 MamaSofa」：奶茶灰白背景 + 柔霧藍紫主色，大圓角、乾淨留白 */
+:root {
+  --color-bg: #f6f3ee;
+  --color-bg-deep: #eeeae1;
+  --color-surface: #ffffff;
+  --color-text: #3c3944;
+  --color-text-soft: #8d8791;
+  --color-text-faint: #b8b2ba;
+
+  --color-herb: #8b97dd;
+  --color-herb-dark: #6b76c0;
+  --color-herb-soft: #ecedfa;
+  --color-herb-text: #5b64ad;
+
+  --color-clay: #c98a67;
+  --color-clay-soft: #f5e7dc;
+
+  --color-save: #b95c53;
+  --color-save-soft: #f6e4e1;
+
+  --color-line: #e6e1d6;
+  --color-line-soft: #eee9de;
+
+  --radius-lg: 32px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+
+  --shadow-card: 0 4px 20px rgba(70, 60, 90, 0.08);
+  --shadow-pop: 0 16px 48px rgba(60, 50, 80, 0.18);
+
+  --font-display: "Noto Serif TC", "Noto Sans TC", serif;
+  --font-body: "Noto Sans TC", "PingFang TC", sans-serif;
+
+  --container: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0 0 0.5em;
+  color: var(--color-text);
+  letter-spacing: 0.01em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-herb-dark);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 999px;
+  padding: 13px 26px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-primary {
+  background: var(--color-herb);
+  color: #fdfbf6;
+}
+.btn-primary:hover {
+  background: var(--color-herb-dark);
+}
+.btn-primary:disabled {
+  background: var(--color-text-faint);
+  cursor: not-allowed;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--color-herb-dark);
+  border: 1.5px solid var(--color-herb);
+}
+.btn-outline:hover {
+  background: var(--color-herb-soft);
+}
+.btn-block {
+  width: 100%;
+}
+
+.pill-select {
+  border: 1.5px solid var(--color-line);
+  background: var(--color-surface);
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.section-title {
+  font-size: 26px;
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

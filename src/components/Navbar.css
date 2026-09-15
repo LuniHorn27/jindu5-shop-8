@@ -1,0 +1,193 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(246, 241, 230, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 14px 24px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.navbar-logo-mark {
+  color: var(--color-herb-dark);
+  flex-shrink: 0;
+}
+
+.navbar-logo-text {
+  font-family: var(--font-display);
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--color-herb-dark);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.navbar-logo-x {
+  color: var(--color-text-faint);
+  margin: 0 3px;
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+.navbar-logo-sub {
+  color: var(--color-text-soft);
+  font-size: 12.5px;
+  font-weight: 400;
+  font-family: var(--font-body);
+  margin-left: 5px;
+}
+
+/* 主導覽連結：桌機時緊跟在 Logo 右側，置中於剩餘空間 */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex: 1;
+  min-width: 0;
+}
+
+.navbar-links a {
+  font-size: 14.5px;
+  color: var(--color-text-soft);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+.navbar-links a:hover {
+  color: var(--color-herb-dark);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.navbar-cart-btn {
+  position: relative;
+  border: none;
+  background: var(--color-herb-soft);
+  color: var(--color-herb-text);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.navbar-cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--color-clay);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+.navbar-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  background: transparent;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+.navbar-burger:hover {
+  background: var(--color-bg-deep);
+}
+.navbar-burger span {
+  display: block;
+  height: 2px;
+  width: 20px;
+  margin: 0 auto;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* 中寬螢幕（筆電視窗、平板橫向）：縮減間距與字級，避免 Logo／導覽連結／購物車互相擠壓 */
+@media (max-width: 1120px) {
+  .navbar-inner {
+    gap: 16px;
+  }
+  .navbar-links {
+    gap: 18px;
+  }
+  .navbar-logo-text {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .navbar-burger {
+    display: flex;
+  }
+
+  .navbar-actions {
+    margin-left: auto;
+  }
+
+  /* 行動版：導覽連結收合成下拉選單，佔滿整列寬度 */
+  .navbar-links {
+    order: 3;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.25s ease, opacity 0.2s ease, margin 0.25s ease;
+    margin-top: 0;
+  }
+  .navbar-links.is-open {
+    max-height: 220px;
+    opacity: 1;
+    margin-top: 6px;
+    padding-top: 10px;
+    border-top: 1px solid var(--color-line);
+  }
+  .navbar-links a {
+    padding: 10px 4px;
+    font-size: 15px;
+    border-bottom: 1px solid var(--color-line-soft);
+  }
+  .navbar-links a:last-child {
+    border-bottom: none;
+  }
+}
