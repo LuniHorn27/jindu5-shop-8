@@ -1,25 +1,9 @@
 // ============================================================
 // 訂單相關 API 函數
-// 目前皆為 Mock 實作，日後串接後端時，只需修改此檔案內部邏輯，
-// 呼叫端 (components/pages) 完全不需要更動。
+// 已串接真正的後端（FastAPI + MySQL），呼叫端 (components/pages)
+// 完全不需要更動。
 // ============================================================
-import { mockOrders } from "../data/mockOrders";
-
-const FAKE_LATENCY = 350;
-let orders = [...mockOrders]; // 記憶體暫存，重新整理頁面會重置
-
-function delay(data, ms = FAKE_LATENCY) {
-  return new Promise((resolve) => setTimeout(() => resolve(data), ms));
-}
-
-function generateOrderId() {
-  const now = new Date();
-  const y = now.getFullYear();
-  const m = String(now.getMonth() + 1).padStart(2, "0");
-  const d = String(now.getDate()).padStart(2, "0");
-  const rand = Math.floor(Math.random() * 900 + 100);
-  return `JD${y}${m}${d}${rand}`;
-}
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
 /**
  * 建立訂單（結帳送出）
@@ -27,36 +11,29 @@ function generateOrderId() {
  * @returns {Promise<Object>} 建立後的訂單物件（含訂單編號）
  */
 export async function createOrder(payload) {
-  const order = {
-    id: generateOrderId(),
-    ...payload,
-    status: "待付款",
-    remitLast5: "",
-    createdAt: new Date().toLocaleString("zh-TW", { hour12: false }),
-  };
-  orders = [order, ...orders];
-
-  // TODO: Call API here — 之後改為：
-  // const res = await fetch('/api/orders', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(payload),
-  // });
-  // return res.json();
-  return delay(order);
+  const res = await fetch(`${API_BASE}/api/orders`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error("建立訂單失敗");
+  return res.json();
 }
 
 /**
  * 回報匯款後五碼
  * @param {string} orderId
  * @param {string} last5
- * @returns {Promise<Object>} { success: boolean }
+ * @returns {Promise<Object>} 更新後的訂單物件
  */
 export async function reportRemittance(orderId, last5) {
-  orders = orders.map((o) => (o.id === orderId ? { ...o, remitLast5: last5 } : o));
-
-  // TODO: Call API here
-  return delay({ success: true });
+  const res = await fetch(`${API_BASE}/api/orders/${orderId}/remittance`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ last5 }),
+  });
+  if (!res.ok) throw new Error("回報匯款失敗");
+  return res.json();
 }
 
 /**
@@ -65,9 +42,10 @@ export async function reportRemittance(orderId, last5) {
  * @returns {Promise<Object|null>}
  */
 export async function fetchOrderById(orderId) {
-  const found = orders.find((o) => o.id === orderId) || null;
-  // TODO: Call API here
-  return delay(found);
+  const res = await fetch(`${API_BASE}/api/orders/${orderId}`);
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error("取得訂單失敗");
+  return res.json();
 }
 
 /**
@@ -75,19 +53,23 @@ export async function fetchOrderById(orderId) {
  * @returns {Promise<Array>}
  */
 export async function fetchOrders() {
-  // TODO: Call API here
-  return delay([...orders]);
+  const res = await fetch(`${API_BASE}/api/orders`);
+  if (!res.ok) throw new Error("取得訂單列表失敗");
+  return res.json();
 }
 
 /**
  * 後台：切換訂單付款狀態
  * @param {string} orderId
  * @param {"待付款"|"已付款"} newStatus
- * @returns {Promise<Object>} { success: boolean }
+ * @returns {Promise<Object>} 更新後的訂單物件
  */
 export async function updateOrderStatus(orderId, newStatus) {
-  orders = orders.map((o) => (o.id === orderId ? { ...o, status: newStatus } : o));
-
-  // TODO: Call API here
-  return delay({ success: true });
+  const res = await fetch(`${API_BASE}/api/orders/${orderId}/status`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ status: newStatus }),
+  });
+  if (!res.ok) throw new Error("更新訂單狀態失敗");
+  return res.json();
 }
