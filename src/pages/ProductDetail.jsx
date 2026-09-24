@@ -115,12 +115,10 @@ export default function ProductDetail() {
             {justAdded ? "已加入購物車 ✓" : "加入購物車"}
           </button>
 
-          {product.ingredients && (
-            <div className="pd-meta-box">
-              <h3>成分說明</h3>
-              <p>{product.ingredients}</p>
-            </div>
-          )}
+          <div className="pd-meta-box">
+            <h3>成分說明</h3>
+            <p>{product.ingredients}</p>
+          </div>
         </div>
       </div>
 
@@ -130,16 +128,14 @@ export default function ProductDetail() {
           <p className="pd-description">{product.description}</p>
         </section>
 
-        {product.usage.length > 0 && (
-          <section className="pd-section">
-            <h2>使用方法</h2>
-            <ul className="pd-usage-list">
-              {product.usage.map((step, i) => (
-                <li key={i}>{step}</li>
-              ))}
-            </ul>
-          </section>
-        )}
+        <section className="pd-section">
+          <h2>使用方法</h2>
+          <ul className="pd-usage-list">
+            {product.usage.map((step, i) => (
+              <li key={i}>{step}</li>
+            ))}
+          </ul>
+        </section>
       </div>
     </div>
   );

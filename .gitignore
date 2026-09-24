@@ -4,12 +4,3 @@ dist
 *.log
 .env
 .env.local
-
-desktop-pet/pet-status.json
-.claude/settings.local.json
-desktop-pet/red-panda-pet
-desktop-pet/statusline-sample.json
-
-backend/venv
-backend/__pycache__
-backend/**/__pycache__
